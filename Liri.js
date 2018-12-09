@@ -26,14 +26,20 @@ switch (userChoice) {
 
     case "spotify-this-song":
     spotify.search({ type: 'track', query: userInput, limit: 4 }, function(err, data) {
+      
         if (err) {
           return console.log('Error occurred: ' + err);
-        } else{
+        } 
+        else{
             console.log("Song Name: " + userInput.toUpperCase());
             console.log("Artist: " + data.tracks.items[0].artists[0].name);
             console.log("Album Name: " + data.tracks.items[0].album.name);
             console.log("URL: " + data.tracks.items[0].album.external_urls.spotify);
+
              
+        }
+        if(!userInput){
+            userInput = "The Sign";
         }
 
     
@@ -53,6 +59,10 @@ switch (userChoice) {
             console.log("The movie's language is: " + movieData.data.Language);
             console.log("The movie's plot is: " + movieData.data.Plot);
             console.log("The movie's cast is: " + movieData.data.Actors);
+
+            if(!userInput){
+                userInput = "Mr.Nobody"
+            }
 
         }
       )
